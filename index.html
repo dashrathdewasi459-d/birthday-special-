@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(
+rgba(0,0,0,0.65),
+rgba(0,0,0,0.65)
+),
+url("crush.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.container{
+text-align:center;
+max-width:800px;
+padding:30px;
+color:white;
+z-index:2;
+}
+
+h1{
+font-size:4rem;
+margin-bottom:10px;
+animation:glow 2s infinite alternate;
+}
+
+.subtitle{
+font-size:1.2rem;
+opacity:.9;
+margin-bottom:25px;
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:18px;
+font-weight:bold;
+background:white;
+color:#ff4d6d;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+#letter{
+display:none;
+margin-top:25px;
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.12);
+line-height:1.9;
+font-size:18px;
+animation:fadeIn 1s ease;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+color:white;
+animation:float linear forwards;
+pointer-events:none;
+}
+
+@keyframes float{
+from{
+transform:translateY(0);
+opacity:1;
+}
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px white;
+}
+to{
+text-shadow:0 0 35px pink;
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.footer{
+margin-top:25px;
+font-size:14px;
+opacity:.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎂 Happy Birthday 🎂</h1>
+
+<div class="subtitle">
+A special surprise made just for you ✨
+</div>
+
+<button onclick="showLetter()">
+Open Your Surprise ❤️
+</button>
+
+<div id="letter">
+
+<p>
+
+Happy Birthday 🌸
+
+Maybe we don't talk.
+
+Maybe you don't even know how often you've crossed my mind.
+
+But sometimes a person appears in life and leaves an impression without even trying.
+
+There was a boy who looked at you once...
+
+and somehow forgot what he was thinking about.
+
+Maybe it was your smile.
+
+Maybe it was your eyes.
+
+Or maybe it was simply the way you made an ordinary day feel different.
+
+You may never know it...
+
+but you've been the reason behind many random smiles.
+
+Today is your birthday and all I truly wish for is your happiness.
+
+May your life be filled with beautiful moments,
+endless laughter,
+and every dream your heart carries.
+
+Keep smiling.
+
+The world genuinely looks brighter when you do. ❤️
+
+✨ Happy Birthday ✨
+
+</p>
+
+</div>
+
+<div class="footer">
+Made with ❤️
+</div>
+
+</div>
+
+<script>
+
+function showLetter(){
+document.getElementById("letter").style.display="block";
+burst();
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+const emojis=["❤️","✨","💖","💕"];
+
+heart.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(Math.random()*25+15)+"px";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,300);
+
+function burst(){
+
+for(let i=0;i<80;i++){
+
+const item=document.createElement("div");
+
+item.classList.add("heart");
+
+item.innerHTML=Math.random()>0.5?"❤️":"✨";
+
+item.style.left="50vw";
+item.style.bottom="50vh";
+
+item.style.fontSize="25px";
+
+item.style.transform=
+`translate(
+${(Math.random()-0.5)*1000}px,
+${(Math.random()-0.5)*800}px
+)`;
+
+document.body.appendChild(item);
+
+setTimeout(()=>{
+item.remove();
+},3000);
+}
+
+}
+
+</script>
+
+</body>
+</html>
